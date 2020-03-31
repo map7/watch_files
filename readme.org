@@ -1,0 +1,5 @@
+* Watch Dirs
+
+Watches for modified & created files recursively in a directory and applies actions. In this case we want to change the permissions of files moved there or created to t100:tram with permissions 770.
+
+
