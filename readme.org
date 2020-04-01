@@ -1,4 +1,4 @@
-* Watch Dirs
+* Watch Files
 
 Watches for modified & created files recursively in a directory and applies actions. In this case we want to change the permissions of files moved there or created to USER:GROUP with permissions 770.
 
