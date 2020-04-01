@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rb-inotify'
+require 'fileutils'
 require 'byebug'
 
 @notifier = INotify::Notifier.new
@@ -16,10 +17,10 @@ DIR = "/home/tram/work/clt"
   puts "Changing permissions of #{file.absolute_name}"
 
   if File.file?(file.absolute_name)
-    `chown #{USER}:#{GROUP} #{file.absolute_name}`
-    `chmod g+w #{file.absolute_name}`
+    FileUtils.chmod "g=rw,o=", file.absolute_name, verbose: true
+    FileUtils.chown nil, GROUP, file.absolute_name, verbose: true
   else
-    `chown -R #{USER}:#{GROUP} #{file.absolute_name}`
+    `chown :tram -R #{file.absolute_name}`
     `chmod g+x #{file.absolute_name}`
     `chmod -R g+w #{file.absolute_name}`
   end
