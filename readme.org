@@ -2,6 +2,8 @@
 
 Watches for modified & created files recursively in a directory and applies actions. In this case we want to change the permissions of files moved there or created to USER:GROUP with permissions 770.
 
+ACL didn't work on moved files, normal linux permissions don't seem to affect files which are created in regards to setting the default group.
+
 ** Requirements
 
 | ruby | 2.2 or greater                   |
