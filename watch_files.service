@@ -1,0 +1,13 @@
+[Unit]
+Description=Watch files
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/local/rbenv/shims/ruby /usr/local/bin/watch_files
+
+[Install]
+WantedBy=multi-user.target
