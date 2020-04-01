@@ -27,3 +27,12 @@ Start the service
 ** Configuration
 
 Edit ~/.watch_files.yaml and change user, group and path to what you want.
+
+** TODO 
+   :PROPERTIES:
+   :CREATED:  [2020-04-01 Wed 15:06]
+   :END:
+
+- Allow multiple directories with multiple user & groups to be setup and ran in parallel
+- Use ruby libraries instead of system calls to chmod and chown for greater compatibility with other systems
+- Add tests
