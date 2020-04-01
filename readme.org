@@ -1,10 +1,27 @@
 * Watch Dirs
 
-Watches for modified & created files recursively in a directory and applies actions. In this case we want to change the permissions of files moved there or created to t100:tram with permissions 770.
+Watches for modified & created files recursively in a directory and applies actions. In this case we want to change the permissions of files moved there or created to USER:GROUP with permissions 770.
+
+** Requirements
+
+| ruby | 2.2 or greater                   |
+| OS   | Linux, BSD, Mac, ie: Not Windows |
+
+** Installation
+
+: sudo apt install ruby
+: gem install rb-inotify fileutils byebug json
+: cp config.yml ~/.watch_files.yml
+: sudo ln -s <path to watch_dir.rb> /usr/local/bin/watch_dir
 
 ** systemd
 
-: cp watch_files.service /etc/systemd/system dir
+Copy the systemd startup service to the system dir
+: cp watch_files.service /etc/systemd/system
 
+Start the service
 : systemctl start watch_files
 
+** Configuration
+
+Edit ~/.watch_files.yaml and change user, group and path to what you want.
