@@ -2,13 +2,15 @@
 
 require 'rb-inotify'
 require 'fileutils'
+require 'yaml'
 require 'byebug'
 
 @notifier = INotify::Notifier.new
 
-USER = "t100"
-GROUP = "tram"
-DIR = "/home/tram/work/clt"
+config=YAML.load(File.read(File.expand_path("~/.watch_files.yaml")))
+USER = config[:user]
+GROUP = config[:group]
+DIR = config[:dir]
 
 # Note: rb-inotify doesn't need to be in a thread, as soon as you setup your watch
 # it is watching the directory. Then at the end you can process all the files which
