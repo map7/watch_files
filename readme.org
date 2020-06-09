@@ -28,6 +28,20 @@ Start the service
 
 Edit ~/.watch_files.yaml and change user, group and path to what you want.
 
+** Monit (optional)
+
+I've found that systemd sometimes doesn't restart so I'm using trusty monit which has never let me down to monitor the process.
+
+/etc/monit/monitrc
+: # Check watch_files
+: check process watch_files
+:       matching "watch_files"
+:       start program = "systemctl start watch_files"
+:       stop program = "systemctl stop watch_files"
+
+Restart monit
+: systemctl restart monit
+
 ** TODO 
    :PROPERTIES:
    :CREATED:  [2020-04-01 Wed 15:06]
