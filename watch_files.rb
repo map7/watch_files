@@ -17,9 +17,9 @@ config=YAML.load(File.read(File.expand_path("~/.watch_files.yaml")))
     FileUtils.chmod "g=rw,o=", file.absolute_name, verbose: true
     FileUtils.chown nil, config[:group], file.absolute_name, verbose: true
   else
-    `chown :#{config[:group]} -R #{file.absolute_name}`
-    `chmod g+x #{file.absolute_name}`
-    `chmod -R g+w #{file.absolute_name}`
+    `chown :#{config[:group]} -R "#{file.absolute_name}"`
+    `chmod g+x "#{file.absolute_name}"`
+    `chmod -R g+w "#{file.absolute_name}"`
   end
 end
 
